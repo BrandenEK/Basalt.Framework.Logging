@@ -4,6 +4,14 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Logger.Info("Starting program");
+
+        Logger.Error("Failure");
+
+        Logger.Warn("Warning");
+
+        Logger.Debug("Debug");
+
+        Console.ReadKey();
     }
 }
