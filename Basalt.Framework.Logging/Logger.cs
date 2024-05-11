@@ -4,6 +4,7 @@ namespace Basalt.Framework.Logging;
 public static class Logger
 {
     private static bool _initialized = false;
+
     private static Properties? _properties;
 
     public static void Initialize(Properties properties)
