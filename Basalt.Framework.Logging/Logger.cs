@@ -35,6 +35,13 @@ public static class Logger
     /// </summary>
     public static void Initialize(IEnumerable<ILogger> loggers) => Initialize(loggers, new Properties());
 
+    internal static void Reset()
+    {
+        _initialized = false;
+        _loggers = null;
+        _properties = null;
+    }
+
     /// <summary> Displays a message as information </summary>
     public static void Info(object message)
     {

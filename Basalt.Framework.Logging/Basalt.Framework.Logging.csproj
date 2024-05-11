@@ -13,6 +13,11 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/BrandenEK/Basalt.Framework.Logging</RepositoryUrl>
+
   </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Basalt.Framework.Logging.Tests" />
+  </ItemGroup>
 
 </Project>
