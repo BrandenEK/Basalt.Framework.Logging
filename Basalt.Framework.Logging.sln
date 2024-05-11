@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basalt.Framework.Logging", "Basalt.Framework.Logging\Basalt.Framework.Logging.csproj", "{0372EBBC-2B9D-47F1-B31E-DAE8B77353E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basalt.Framework.Logging.Tests", "Basalt.Framework.Logging.Tests\Basalt.Framework.Logging.Tests.csproj", "{0F139058-A0A4-42B7-AE64-0A1FCC835083}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0372EBBC-2B9D-47F1-B31E-DAE8B77353E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0372EBBC-2B9D-47F1-B31E-DAE8B77353E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0372EBBC-2B9D-47F1-B31E-DAE8B77353E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F139058-A0A4-42B7-AE64-0A1FCC835083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F139058-A0A4-42B7-AE64-0A1FCC835083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F139058-A0A4-42B7-AE64-0A1FCC835083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F139058-A0A4-42B7-AE64-0A1FCC835083}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
