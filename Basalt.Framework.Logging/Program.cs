@@ -1,10 +1,12 @@
-﻿namespace Basalt.Framework.Logging;
+﻿using Basalt.Framework.Logging.Standard;
+
+namespace Basalt.Framework.Logging;
 
 internal class Program
 {
     static void Main(string[] args)
     {
-        Logger.Initialize();
+        Logger.Initialize(new ILogger[] { new ConsoleLogger(false) });
 
         Logger.Info("Starting program");
 
