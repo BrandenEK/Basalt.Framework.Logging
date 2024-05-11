@@ -6,7 +6,15 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Logger.Initialize(new ILogger[] { new ConsoleLogger(false) });
+        Logger.Initialize(new ILogger[]
+        {
+            new ConsoleLogger(false),
+            new FileLogger(Environment.CurrentDirectory + "/test")
+        },
+        new Properties()
+        {
+            DisplayDebug = false
+        });
 
         Logger.Info("Starting program");
 

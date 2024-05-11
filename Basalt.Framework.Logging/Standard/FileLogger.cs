@@ -49,7 +49,7 @@ public class FileLogger : ILogger
 
     private void LogtoFile(object message, string type)
     {
-        string output = $"[{DateTime.Now:HH:mm:ss} {type}] {message}{Environment.NewLine}";
+        string output = $"[{DateTime.Now:HH:mm:ss} {type.PadLeft(PADDING, ' ')}] {message}{Environment.NewLine}";
 
         if (File.Exists(_path))
             File.SetAttributes(_path, File.GetAttributes(_path) & ~FileAttributes.ReadOnly);
@@ -57,4 +57,6 @@ public class FileLogger : ILogger
         File.AppendAllText(_path, output);
         File.SetAttributes(_path, FileAttributes.ReadOnly);
     }
+
+    private const int PADDING = 7;
 }
