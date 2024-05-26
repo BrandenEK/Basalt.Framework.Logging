@@ -10,10 +10,13 @@ public class ConsoleLogger : ILogger
     /// <summary>
     /// Creates a new console logger
     /// </summary>
-    public ConsoleLogger(bool requiresAlloc)
+    public ConsoleLogger(string title)
     {
-        if (requiresAlloc)
-            AttachConsole(-1);
+        if (AttachConsole(-1))
+            return;
+
+        AllocConsole();
+        Console.Title = title;
     }
 
     /// <inheritdoc/>
@@ -40,11 +43,14 @@ public class ConsoleLogger : ILogger
         LogToConsole(message, ConsoleColor.Cyan);
     }
 
-    private void LogToConsole(object message, ConsoleColor color)
+    private static void LogToConsole(object message, ConsoleColor color)
     {
         Console.ForegroundColor = color;
         Console.WriteLine(message);
     }
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    static extern bool AllocConsole();
 
     [DllImport("kernel32", SetLastError = true)]
     static extern bool AttachConsole(int dwProcessId);

@@ -9,39 +9,21 @@ public class InitializationTests
     [TestInitialize]
     public void TestReset()
     {
-        Logger.Reset();
+        Logger.RemoveAllLoggers();
         _logger = new TestLogger();
-    }
-
-    [TestMethod]
-    public void Initialize_Never()
-    {
-        Assert.ThrowsException<InvalidOperationException>(() => Logger.Info("Test"));
-    }
-
-    [TestMethod]
-    public void Initialize_Twice()
-    {
-        Logger.Initialize(Array.Empty<ILogger>());
-
-        Assert.ThrowsException<InvalidOperationException>(() => Logger.Initialize(Array.Empty<ILogger>()));
     }
 
     [TestMethod]
     public void Initialize_Zero()
     {
-        Logger.Initialize(Array.Empty<ILogger>());
-
         Logger.Info("Test");
+        Assert.AreEqual(0, _logger.InfoMessages);
     }
 
     [TestMethod]
     public void Initialize_One()
     {
-        Logger.Initialize(new ILogger[]
-        {
-            _logger
-        });
+        Logger.AddLogger(_logger);
 
         Logger.Info("Test");
         Assert.AreEqual(1, _logger.InfoMessages);
@@ -50,9 +32,10 @@ public class InitializationTests
     [TestMethod]
     public void Initialize_Two()
     {
-        Logger.Initialize(new ILogger[]
+        Logger.AddLoggers(new ILogger[]
         {
-            _logger, _logger
+            _logger,
+            _logger
         });
 
         Logger.Info("Test");
