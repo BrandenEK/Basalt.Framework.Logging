@@ -15,11 +15,10 @@ public static class Logger
     public static void Initialize(IEnumerable<ILogger> loggers)
     {
         if (_initialized)
-            throw new InvalidOperationException("Logging framework has already been initialized");
+            throw new LoggingException("Logging framework has already been initialized");
 
         if (loggers is null)
             throw new ArgumentNullException(nameof(loggers));
-
 
         _loggers = loggers;
         _initialized = true;
@@ -35,7 +34,7 @@ public static class Logger
     public static void Info(object message)
     {
         if (!_initialized)
-            throw new InvalidOperationException("Logging framework has not been initialized");
+            throw new LoggingException("Logging framework has not been initialized");
 
         foreach (ILogger logger in _loggers!)
             logger.Info(message);
@@ -45,7 +44,7 @@ public static class Logger
     public static void Warn(object message)
     {
         if (!_initialized)
-            throw new InvalidOperationException("Logging framework has not been initialized");
+            throw new LoggingException("Logging framework has not been initialized");
 
         foreach (ILogger logger in _loggers!)
             logger.Warn(message);
@@ -55,7 +54,7 @@ public static class Logger
     public static void Error(object message)
     {
         if (!_initialized)
-            throw new InvalidOperationException("Logging framework has not been initialized");
+            throw new LoggingException("Logging framework has not been initialized");
 
         foreach (ILogger logger in _loggers!)
             logger.Error(message);
@@ -65,7 +64,7 @@ public static class Logger
     public static void Debug(object message)
     {
         if (!_initialized)
-            throw new InvalidOperationException("Logging framework has not been initialized");
+            throw new LoggingException("Logging framework has not been initialized");
 
         if (!LoggingProperties.DisplayDebug)
             return;
