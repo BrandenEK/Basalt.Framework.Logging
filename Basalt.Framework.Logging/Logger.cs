@@ -51,6 +51,13 @@ public static class Logger
             logger.Error(message);
     }
 
+    /// <summary> Displays a message as a fatal error </summary>
+    public static void Fatal(object message)
+    {
+        foreach (ILogger logger in _loggers)
+            logger.Fatal(message);
+    }
+
     /// <summary> Displays a message as a debug statement </summary>
     public static void Debug(object message)
     {

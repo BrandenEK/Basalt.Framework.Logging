@@ -15,6 +15,9 @@ public interface ILogger
     /// <summary> Displays a message as an error </summary>
     void Error(object message);
 
+    /// <summary> Displays a message as a fatal error </summary>
+    void Fatal(object message);
+
     /// <summary> Displays a message as a debug statement </summary>
     void Debug(object message);
 }

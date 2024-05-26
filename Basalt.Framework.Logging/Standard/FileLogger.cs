@@ -44,6 +44,12 @@ public class FileLogger : ILogger
     }
 
     /// <inheritdoc/>
+    public void Fatal(object message)
+    {
+        LogtoFile(message, "Fatal");
+    }
+
+    /// <inheritdoc/>
     public void Debug(object message)
     {
         LogtoFile(message, "Debug");

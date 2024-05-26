@@ -39,6 +39,12 @@ public class ConsoleLogger : ILogger
     }
 
     /// <inheritdoc/>
+    public void Fatal(object message)
+    {
+        LogToConsole(message, ConsoleColor.DarkRed);
+    }
+
+    /// <inheritdoc/>
     public void Debug(object message)
     {
         LogToConsole(message, ConsoleColor.Cyan);
