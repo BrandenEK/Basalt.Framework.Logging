@@ -7,14 +7,12 @@ namespace Basalt.Framework.Logging;
 public static class Logger
 {
     private static bool _initialized = false;
-
     private static IEnumerable<ILogger>? _loggers;
-    private static Properties? _properties;
 
     /// <summary>
     /// Initializes the logger with functionality and custom properties
     /// </summary>
-    public static void Initialize(IEnumerable<ILogger> loggers, Properties properties)
+    public static void Initialize(IEnumerable<ILogger> loggers)
     {
         if (_initialized)
             throw new InvalidOperationException("Logging framework has already been initialized");
@@ -22,24 +20,15 @@ public static class Logger
         if (loggers is null)
             throw new ArgumentNullException(nameof(loggers));
 
-        if (properties is null)
-            throw new ArgumentNullException(nameof(properties));
 
         _loggers = loggers;
-        _properties = properties;
         _initialized = true;
     }
-
-    /// <summary>
-    /// Initializes the logger with functionality and default properties
-    /// </summary>
-    public static void Initialize(IEnumerable<ILogger> loggers) => Initialize(loggers, new Properties());
 
     internal static void Reset()
     {
         _initialized = false;
         _loggers = null;
-        _properties = null;
     }
 
     /// <summary> Displays a message as information </summary>
@@ -78,7 +67,7 @@ public static class Logger
         if (!_initialized)
             throw new InvalidOperationException("Logging framework has not been initialized");
 
-        if (!_properties!.DisplayDebug)
+        if (!LoggingProperties.DisplayDebug)
             return;
 
         foreach (ILogger logger in _loggers!)

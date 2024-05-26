@@ -10,6 +10,8 @@ public class PropertyTests
     public void TestReset()
     {
         Logger.Reset();
+        LoggingProperties.DisplayDebug = true;
+
         _logger = new TestLogger();
     }
 
@@ -25,10 +27,8 @@ public class PropertyTests
     [TestMethod]
     public void Properties_DisplayDebug()
     {
-        Logger.Initialize(new ILogger[] { _logger }, new Properties()
-        {
-            DisplayDebug = false
-        });
+        Logger.Initialize(new ILogger[] { _logger });
+        LoggingProperties.DisplayDebug = false;
 
         Logger.Debug("Test");
         Assert.AreEqual(0, _logger.DebugMessages);
