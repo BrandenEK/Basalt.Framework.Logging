@@ -8,7 +8,7 @@
     <Title>Basalt Logging Framework</Title>
     <Authors>Damocles</Authors>
     <Description>A logging framework for basalt applications</Description>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
 
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
