@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace Basalt.Framework.Logging;
 
 /// <summary>

@@ -1,4 +1,6 @@
-﻿
+﻿using System;
+using System.IO;
+
 namespace Basalt.Framework.Logging.Standard;
 
 /// <summary>
