@@ -7,16 +7,12 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        var loggers = new ILogger[]
+        LoggingProperties.DisplayDebug = false;
+        Logger.AddLoggers(new ILogger[]
         {
-            new ConsoleLogger(false)
-        };
-        var properties = new Basalt.Framework.Logging.Properties()
-        {
-            DisplayDebug = false
-        };
-
-        Logger.Initialize(loggers, properties);
+            new ConsoleLogger("Console title"),
+            new FileLogger(logPath)
+        });
 
         Logger.Info("Test info");
         Logger.Warn("Test warning");
