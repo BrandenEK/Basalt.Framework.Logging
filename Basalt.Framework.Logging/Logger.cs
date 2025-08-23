@@ -20,7 +20,7 @@ public static class Logger
     /// <summary>
     /// Registers multiple ILoggers
     /// </summary>
-    public static void AddLoggers(IEnumerable<ILogger> loggers)
+    public static void AddLoggers(params ILogger[] loggers)
     {
         _loggers.AddRange(loggers);
     }
