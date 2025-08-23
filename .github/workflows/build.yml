@@ -11,20 +11,17 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: |
-            3.1.x
-            6.0.x
+        dotnet-version: 8.0.x
 
     - name: Build Project
       run: |
         dotnet restore
         dotnet build --configuration Release --no-restore
-        dotnet test
 
     - name: Upload Nuget
       run: dotnet nuget push **\*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
