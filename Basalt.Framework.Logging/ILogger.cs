@@ -6,7 +6,7 @@ namespace Basalt.Framework.Logging;
 /// </summary>
 public interface ILogger
 {
-    /// <summary> Displays a message as information </summary>
+    /// <summary> Displays a message as a statement </summary>
     void Info(object message);
 
     /// <summary> Displays a message as a warning </summary>

@@ -7,7 +7,7 @@ namespace Basalt.Framework.Logging;
 /// </summary>
 public static class Logger
 {
-    private static readonly List<ILogger> _loggers = new();
+    private static readonly List<ILogger> _loggers = [];
 
     /// <summary>
     /// Registers a single ILogger
@@ -30,7 +30,7 @@ public static class Logger
         _loggers.Clear();
     }
 
-    /// <summary> Displays a message as information </summary>
+    /// <summary> Displays a message as a statement </summary>
     public static void Info(object message)
     {
         foreach (ILogger logger in _loggers)
@@ -61,9 +61,6 @@ public static class Logger
     /// <summary> Displays a message as a debug statement </summary>
     public static void Debug(object message)
     {
-        if (!LoggingProperties.DisplayDebug)
-            return;
-
         foreach (ILogger logger in _loggers)
             logger.Debug(message);
     }
