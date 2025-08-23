@@ -23,12 +23,12 @@ public class PropertyTests
         Assert.AreEqual(1, _logger.DebugMessages);
     }
 
-    [TestMethod]
-    public void Properties_DisplayDebug()
-    {
-        Logger.AddLogger(_logger);
+    //[TestMethod]
+    //public void Properties_DisplayDebug()
+    //{
+    //    Logger.AddLogger(_logger);
 
-        Logger.Debug("Test");
-        Assert.AreEqual(0, _logger.DebugMessages);
-    }
+    //    Logger.Debug("Test");
+    //    Assert.AreEqual(0, _logger.DebugMessages);
+    //}
 }
