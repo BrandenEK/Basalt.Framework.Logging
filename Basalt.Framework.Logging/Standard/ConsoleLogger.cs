@@ -47,13 +47,13 @@ public class ConsoleLogger : ILogger
     /// <inheritdoc/>
     public void Debug(object message)
     {
-        LogToConsole(message, ConsoleColor.Cyan);
+        LogToConsole(message, ConsoleColor.DarkGray);
     }
 
     private static void LogToConsole(object message, ConsoleColor color)
     {
         Console.ForegroundColor = color;
-        Console.WriteLine(message);
+        Console.WriteLine($"[{DateTime.UtcNow:HH:mm:ss}] {message}");
     }
 
     [DllImport("kernel32.dll", SetLastError = true)]
