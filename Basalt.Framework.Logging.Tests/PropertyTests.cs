@@ -10,7 +10,6 @@ public class PropertyTests
     public void TestReset()
     {
         Logger.RemoveAllLoggers();
-        LoggingProperties.DisplayDebug = true;
 
         _logger = new TestLogger();
     }
@@ -24,13 +23,12 @@ public class PropertyTests
         Assert.AreEqual(1, _logger.DebugMessages);
     }
 
-    [TestMethod]
-    public void Properties_DisplayDebug()
-    {
-        Logger.AddLogger(_logger);
-        LoggingProperties.DisplayDebug = false;
+    //[TestMethod]
+    //public void Properties_DisplayDebug()
+    //{
+    //    Logger.AddLogger(_logger);
 
-        Logger.Debug("Test");
-        Assert.AreEqual(0, _logger.DebugMessages);
-    }
+    //    Logger.Debug("Test");
+    //    Assert.AreEqual(0, _logger.DebugMessages);
+    //}
 }

@@ -7,12 +7,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        LoggingProperties.DisplayDebug = false;
-        Logger.AddLoggers(new ILogger[]
-        {
-            new ConsoleLogger("Console title"),
-            new FileLogger(logPath)
-        });
+        Logger.AddLoggers(new ConsoleLogger("Console title"), new FileLogger(logPath));
 
         Logger.Info("Test info");
         Logger.Warn("Test warning");

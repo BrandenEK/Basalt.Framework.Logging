@@ -32,11 +32,7 @@ public class InitializationTests
     [TestMethod]
     public void Initialize_Two()
     {
-        Logger.AddLoggers(new ILogger[]
-        {
-            _logger,
-            _logger
-        });
+        Logger.AddLoggers(_logger, _logger);
 
         Logger.Info("Test");
         Assert.AreEqual(2, _logger.InfoMessages);
